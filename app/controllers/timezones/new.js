@@ -17,6 +17,8 @@ export default Ember.Controller.extend({
       });
 
       console.log(newTimezone);
+
+      newTimezone.save();
     }
   }
 });
