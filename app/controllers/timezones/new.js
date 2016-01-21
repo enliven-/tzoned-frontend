@@ -16,9 +16,11 @@ export default Ember.Controller.extend({
         gmt_difference : gmt_difference
       });
 
-      console.log(newTimezone);
-
+      // save on server
       newTimezone.save();
+
+      // clear fields
+      this.setProperties({name: '', abbr: '', gmt_difference: ''});
     }
   }
 });

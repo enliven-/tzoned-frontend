@@ -1,8 +1,9 @@
-<h1>Your timezones</h1>
-<ul>
-{{#each model as |timezone|}}
-  <li>{{timezone.name}} - {{timezone.abbr}} - {{timezone.gmt_difference}}</li>
-{{/each}}
-</ul>
-
 {{outlet}}
+
+<h3>Your timezones</h3>
+{{#each model as |timezone|}}
+  <div class="well">
+    {{timezone.name}} - {{timezone.abbr}} - {{timezone.gmt_difference}}
+  </div>
+{{/each}}
+
