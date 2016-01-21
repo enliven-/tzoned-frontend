@@ -4,7 +4,11 @@
 {{#each model as |timezone|}}
   <div class="well">
     {{#link-to "timezones.edit" timezone.id}} {{timezone.abbr}} {{/link-to}}
-    <p>{{timezone.name}} : GMT + {{timezone.gmt_difference}}</p>
+    <p>
+      {{timezone.name}} : GMT + {{timezone.gmt_difference}}
+      <button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button>
+    </p>
+
   </div>
 {{/each}}
 
