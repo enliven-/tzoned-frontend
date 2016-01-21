@@ -3,8 +3,8 @@
 <h3>Your timezones</h3>
 {{#each model as |timezone|}}
   <div class="well">
-    {{timezone.name}} - {{timezone.abbr}} - {{timezone.gmt_difference}}
-    {{#link-to "timezones.edit" timezone.id class="btn btn-primary"}}Edit{{/link-to}}
+    {{#link-to "timezones.edit" timezone.id}} {{timezone.abbr}} {{/link-to}}
+    <p>{{timezone.name}} : GMT + {{timezone.gmt_difference}}</p>
   </div>
 {{/each}}
 
