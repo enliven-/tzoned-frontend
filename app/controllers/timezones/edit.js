@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import TimezoneValidations from 'tzoned/mixins/validations/timezone';
 
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(TimezoneValidations, {
 
   actions : {
 
@@ -11,21 +12,28 @@ export default Ember.Controller.extend({
       var abbr = this.get('model.abbr');
       var gmt_difference = this.get('model.gmt_difference');
 
-      // find the record
-      this.store.findRecord('timezone', id).then(function(timezone) {
-        // update the timezone
-        timezone.set('name', name);
-        timezone.set('abbr', abbr);
-        timezone.set('gmt_difference', gmt_difference);
+      // run validations
+      this.validate().then(() => {
+        // find the record
+        this.store.findRecord('timezone', id).then(function(timezone) {
 
-        // save
-        timezone.save();
+          // update the timezone
+          timezone.set('name', name);
+          timezone.set('abbr', abbr);
+          timezone.set('gmt_difference', gmt_difference);
 
-        // clear fields
-        self.setProperties({name: '', abbr: '', gmt_difference: ''});
+          // save on the server
+          timezone.save();
 
-        // redirect to index
-        self.transitionToRoute('timezones');
+          // clear fields
+          self.setProperties({name: '', abbr: '', gmt_difference: ''});
+
+          // redirect to index
+          self.transitionToRoute('timezones');
+        });
+
+      }).catch(() => {
+        console.log('error!');
       });
     }
     
