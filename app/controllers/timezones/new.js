@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import TimezoneValidations from 'tzoned/mixins/validations/timezone';
 
-export default Ember.Controller.extend(TimezoneValidations, {
+export default Ember.Controller.extend({
   
   actions : {
 
@@ -11,7 +11,7 @@ export default Ember.Controller.extend(TimezoneValidations, {
       var gmt_difference = this.get('gmt_difference');
 
       // run validations
-      this.validate().then(() => {
+      // this.validate().then(() => {
 
         // create new timezone in app
         var newTimezone = this.store.createRecord('timezone', {
@@ -29,9 +29,9 @@ export default Ember.Controller.extend(TimezoneValidations, {
         // redirect to index
         this.transitionToRoute('timezones');
 
-      }).catch(() => {
-        console.log('errror!');
-      });
+      // }).catch(() => {
+      //   console.log('errror!');
+      // });
 
     }
   }

@@ -33,6 +33,7 @@ export default Ember.Controller.extend(TimezoneValidations, {
         });
 
       }).catch(() => {
+        self.setProperties({name: '', abbr: '', gmt_difference: ''});
         console.log('error!');
       });
     }
