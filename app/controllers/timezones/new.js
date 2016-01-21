@@ -21,6 +21,9 @@ export default Ember.Controller.extend({
 
       // clear fields
       this.setProperties({name: '', abbr: '', gmt_difference: ''});
+
+      // redirect to index
+      this.transitionToRoute('timezones');
     }
   }
 });
