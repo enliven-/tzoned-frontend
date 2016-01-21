@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
       this.store.findRecord('timezone', id).then(function(timezone) {
         timezone.deleteRecord();
         timezone.save();
+        self.transitionToRoute('timezones');
       })
     }
   }
