@@ -3,15 +3,18 @@ New Timezone
 <form>
   <div class="form-group">
     <label>Abbr</label>
-    {{input type="text" class="form-control" value=abbr placeholder="Abbreviation"}}
+    {{validated-input type="text" value=model.abbr placeholder="Abbreviation" errors=errors.model.abbr }}
+
   </div>
   <div class="form-group">
     <label>Name</label>
-    {{input type="text" class="form-control" value=name placeholder="Name"}}
+    {{validated-input type="text" value=model.name placeholder="Name" errors=errors.model.name }}
+
   </div>
   <div class="form-group">
     <label>Gmt Difference</label>
-    {{input type="text" class="form-control" value=gmt_difference placeholder="GMT Difference"}}
+    {{validated-input type="text" value=model.gmt_difference placeholder="GMT Difference" errors=errors.model.gmt_difference }}
+    
   </div>
   <button {{action "addTimezone"}} class="btn btn-primary">Submit</button>
 </form>
