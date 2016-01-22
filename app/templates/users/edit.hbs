@@ -1,0 +1,14 @@
+
+Edit User
+
+<form>
+  <div class="form-group">
+    <label>Email</label>
+    {{validated-input type="text" value=model.email placeholder="Email" errors=errors.model.email }}
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    {{validated-input type="text" value=model.email placeholder="Email" errors=errors.model.email }}
+  </div>
+  <button {{action "updateUser" model.id}} class="btn btn-primary">Submit</button>
+</form>

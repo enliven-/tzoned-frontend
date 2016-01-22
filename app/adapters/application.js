@@ -3,11 +3,11 @@ import ActiveModelAdapter from 'active-model-adapter';
 export default ActiveModelAdapter.extend({
   host: 'http://tzoned-api.dev',
 
-  headers: { 'Authorization' : 'Ly9ojjBsPqj5skdHaMU8' },
+  headers: { 'Authorization' : 'ZTwgi5xJz_jLLPCUNQDt' },
 
-  namespace : Ember.computed(function() {
-    return 'users/1';
-  }).volatile(),
+  // namespace : Ember.computed(function() {
+  //   return '';
+  // }).volatile(),
 
   shouldReloadAll(store, snapshot) { return true; },
 
