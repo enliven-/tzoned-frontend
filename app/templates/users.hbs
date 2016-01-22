@@ -6,9 +6,10 @@
     {{#link-to "users.edit" user.id}} {{user.email}} {{/link-to}}
 
     <p>
-      {{user.email}}
-      <button {{ action "deleteUser" user.id }} class="btn btn-xs btn-danger">Delete</button>
+      {{user.role}}
     </p>
+
+    <button {{ action "deleteUser" user.id }} class="btn btn-xs btn-danger">Delete</button>
 
   </div>
 {{/each}}
