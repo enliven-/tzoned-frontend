@@ -19,7 +19,8 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy : {
-      'connect-src': "'self' http://tzoned-api.dev/"
+      // 'connect-src': "'self' http://tzoned-api.dev/"
+      'connect-src': "*"
     }
   };
 
@@ -46,6 +47,9 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
-
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'dashboard',
+    routeIfAlreadyAuthenticated: 'dashboard'
+  }
   return ENV;
 };

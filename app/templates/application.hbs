@@ -14,6 +14,14 @@
             <li>{{#link-to 'users'}}Users{{/link-to}}</li>
             <li>{{#link-to 'timezones'}}Timezones{{/link-to}}</li>
             <li>{{#link-to 'timezones.new'}}New{{/link-to}}</li>
+
+            <li>
+              {{#if session.isAuthenticated}}
+                <a {{action 'invalidateSession'}}>Logout</a>
+              {{else}}
+                {{#link-to 'login'}}Login{{/link-to}}
+              {{/if}}
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
