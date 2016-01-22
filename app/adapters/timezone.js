@@ -16,7 +16,7 @@ export default ActiveModelAdapter.extend(DataAdapterMixin, {
 
   namespace: Ember.computed(function() { 
     var id = this.get('session.data.authenticated.user.id');
-    return '/users/' + id;
+    return 'users/' + id;
   }),
 
   authorizer: 'authorizer:devise',

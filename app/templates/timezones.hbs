@@ -3,7 +3,7 @@
 <h3>Your timezones</h3>
 {{#each model as |timezone|}}
   <div class="well">
-    {{#link-to "timezones.edit" timezone.id}} {{timezone.abbr}} {{/link-to}}
+    {{#link-to "timezones.edit" timezone.id}} {{timezone.abbr}} {{/link-to}} : Owner => {{timezone.user_email}}
     <p>
       {{timezone.name}} : GMT + {{timezone.gmt_difference}}
       <button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button>

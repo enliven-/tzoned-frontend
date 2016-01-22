@@ -13,8 +13,10 @@
           {{#if session.isAuthenticated}}
           <ul class="nav navbar-nav">
             <li>{{#link-to 'users'}}Users{{/link-to}}</li>
+            {{#unless isManager }}
             <li>{{#link-to 'timezones'}}Timezones{{/link-to}}</li>
             <li>{{#link-to 'timezones.new'}}New{{/link-to}}</li>
+            {{/unless}}
           </ul>
           {{/if}}
         </div><!--/.nav-collapse -->

@@ -9,5 +9,9 @@ export default Ember.Controller.extend({
     invalidateSession() {
       this.get('session').invalidate();
     }
+  },
+
+  isManager() {
+    return this.get('session.data.authenticated.user.role') == 'manager';
   }
 });
