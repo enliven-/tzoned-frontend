@@ -1,20 +1,24 @@
 import ActiveModelAdapter from 'active-model-adapter';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import Ember from 'ember';
 
 
 export default ActiveModelAdapter.extend(DataAdapterMixin, {
-  host: 'http://tzoned-api.dev',
+  session: Ember.inject.service('session'),
 
-  // headers: { 'Authorization' : 'ZTwgi5xJz_jLLPCUNQDt' },
+  // host: 'http://tzoned-api.dev',
+  host: 'http://localhost:3000',
 
-  // namespace : Ember.computed(function() {
-  //   return '';
-  // }).volatile(),
+  headers: Ember.computed(function() {
+    var token = this.get('session.data.authenticated.user.auth_token');
+    return { 'Authorization' : token };
+  }).volatile(),
+
 
   authorizer: 'authorizer:devise',
 
-  shouldReloadAll(store, snapshot) { return true; },
+  shouldReloadAll() { return true; },
 
-  shouldReloadRecord(store, snapshot) { return true; }
+  shouldReloadRecord() { return true; }
 
 });

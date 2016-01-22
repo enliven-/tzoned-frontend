@@ -10,19 +10,13 @@
           <a class="navbar-brand">Tzoned</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
+          {{#if session.isAuthenticated}}
           <ul class="nav navbar-nav">
             <li>{{#link-to 'users'}}Users{{/link-to}}</li>
             <li>{{#link-to 'timezones'}}Timezones{{/link-to}}</li>
             <li>{{#link-to 'timezones.new'}}New{{/link-to}}</li>
-
-            <li>
-              {{#if session.isAuthenticated}}
-                <a {{action 'invalidateSession'}}>Logout</a>
-              {{else}}
-                {{#link-to 'login'}}Login{{/link-to}}
-              {{/if}}
-            </li>
           </ul>
+          {{/if}}
         </div><!--/.nav-collapse -->
       </div>
     </nav>
