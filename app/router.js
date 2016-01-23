@@ -18,6 +18,10 @@ Router.map(function() {
   this.route('login');
 
   this.route('dashboard');
+
+  // this.route('users', function() {
+  //   this.route('edit');
+  // });
 });
 
 export default Router;
