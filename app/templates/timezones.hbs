@@ -1,14 +1,30 @@
 {{outlet}}
 
-<h3>Your timezones</h3>
-{{#each model as |timezone|}}
-  <div class="well">
-    {{#link-to "timezones.edit" timezone.id}} {{timezone.abbr}} {{/link-to}} : Owner => {{timezone.user_email}}
-    <p>
-      {{timezone.name}} : GMT + {{timezone.gmt_difference}}
-      <button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button>
-    </p>
+<h3>Timezones</h3>
 
-  </div>
-{{/each}}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Abbr</th>
+      <th>Name</th>
+      <th>Current Time</th>
+      <th>Owner</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |timezone|}}
+    <tr>
+      <td>{{timezone.abbr}}</td>
+      <td>{{timezone.name}} </td>
+      <td>{{timezone.gmt_difference}}</td>
+      <td>{{timezone.user_email}}</td>
+      <td>{{#link-to "timezones.edit" timezone.id class="btn btn-xs btn-info"}}Edit{{/link-to}}</td>
+      <td><button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
 
