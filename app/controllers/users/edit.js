@@ -25,6 +25,7 @@ export default Ember.Controller.extend({
         }, (err) => {
           // save on server failed.
           alert('Validations failed on server. Please try again.');
+          self.model.rollbackAttributes();
 
         }).catch(() => {
 

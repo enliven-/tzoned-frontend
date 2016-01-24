@@ -12,6 +12,7 @@ Router.map(function() {
   });
 
   this.resource('users', function() {
+    this.route('new');
     this.route('edit', {path: '/edit/:user_id'});
   });
 
@@ -20,6 +21,7 @@ Router.map(function() {
   this.route('signup');
 
   this.route('dashboard');
+
 });
 
 export default Router;

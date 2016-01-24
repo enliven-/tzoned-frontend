@@ -1,10 +1,9 @@
-<h2>Dashboard</h2>
-
-<p>Peter Parker is Spider-Man</p>
+<h3>Welcome to your dashboard, {{role}}!</h3>
 
 <div class="well">
-            {{outlet "users-nav"}}
-            {{outlet "timezones-nav"}}
+  {{outlet "users-nav"}}
+  <hr />
+  {{outlet "timezones-nav"}}
 </div>
 
 <a {{action 'logout'}}>Logout</a>
