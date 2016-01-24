@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions : {
 
-    createUser() {
+    signUp() {
       var self      = this;
       var email     = this.get('email');
       var password  = this.get('password');

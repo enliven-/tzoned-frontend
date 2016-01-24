@@ -9,17 +9,6 @@
           </button>
           {{#link-to 'dashboard' class="navbar-brand"}}Tzoned{{/link-to}}
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          {{#if session.isAuthenticated}}
-          <ul class="nav navbar-nav">
-{{!--             {{outlet "users-nav"}}
-            {{outlet "timezones-nav"}} --}}
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a {{action 'logout'}} href>Logout</a></li>
-          </ul>
-          {{/if}}
-        </div><!--/.nav-collapse -->
       </div>
     </nav>
 

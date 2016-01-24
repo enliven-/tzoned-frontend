@@ -14,5 +14,9 @@ Edit User
       {{#x-option value="admin"}}Admin{{/x-option}}
     {{/x-select}}
   </div>
+  <div class="form-group">
+    <label>Reset Password</label>
+    {{validated-input name="password" type="password" value=password placeholder="Password" errors=errors.password }}
+  </div>
   <button {{action "updateUser" model.id}} class="btn btn-primary">Submit</button>
 </form>
