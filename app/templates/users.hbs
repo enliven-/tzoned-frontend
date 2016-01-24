@@ -1,15 +1,53 @@
+
+
 {{outlet}}
+<br/><br/>
+
+<div class="input-group"> <span class="input-group-addon">Filter</span>
+  <input id="filter" type="text" class="form-control" placeholder="Filter Users">
+</div>
 
 <h3>Users</h3>
-{{#each model as |user|}}
-  <div class="well">
-    {{#link-to "users.edit" user.id}} {{user.email}} {{/link-to}}
 
-    <p>
-      <span class="role capitalize">{{user.role}}</span>
-    </p>
-    {{#link-to "users.edit" user.id}}Edit{{/link-to}}
-    <button {{ action "deleteUser" user.id }} class="btn btn-xs btn-danger">Delete</button>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="searchable">
+  {{#each model as |user|}}
+    <tr>
+      <td>{{user.name}}</td>
+      <td>{{user.email}} </td>
+      <td class="capitalize">{{user.role}}</td>
+      <td>{{#link-to "users.edit" user.id class="btn btn-xs btn-info"}}Edit{{/link-to}}</td>
+      <td><button {{ action "deleteUser" user.id }} class="btn btn-xs btn-danger">Delete</button></td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
 
-  </div>
-{{/each}}
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    (function ($) {
+
+        $('#filter').keyup(function () {
+
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+});
+</script>
