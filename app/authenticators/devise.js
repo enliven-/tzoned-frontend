@@ -1,5 +1,6 @@
 import DeviseAuthenticator from 'ember-simple-auth/authenticators/devise';
 
 export default DeviseAuthenticator.extend({
-  serverTokenEndpoint: 'http://tzoned-api.dev/sessions'
+  // serverTokenEndpoint: 'http://tzoned-api.dev/sessions'
+  serverTokenEndpoint: 'http://localhost:3000/sessions'
 });

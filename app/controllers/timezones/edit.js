@@ -12,7 +12,7 @@ export default Ember.Controller.extend(TimezoneValidations, {
       var abbr = this.get('model.abbr');
       var gmt_difference = this.get('model.gmt_difference');
 
-      // run validations
+      // // run validations
       this.validate().then(() => {
         // find the record
         this.store.findRecord('timezone', id).then(function(timezone) {
@@ -23,18 +23,31 @@ export default Ember.Controller.extend(TimezoneValidations, {
           timezone.set('gmt_difference', gmt_difference);
 
           // save on the server
-          timezone.save();
+          timezone.save().then(() => { // save on server successfull
+            // clear fields
+            self.setProperties({name: '', abbr: '', gmt_difference: ''});
 
-          // clear fields
-          self.setProperties({name: '', abbr: '', gmt_difference: ''});
+            // redirect to index
+            self.transitionToRoute('timezones');
 
-          // redirect to index
-          self.transitionToRoute('timezones');
+          }, ()=> { // save failed on server
+
+            alert('Validation failed on server. Please try again.');
+            self.model.rollbackAttributes();
+
+          });
+
         });
 
-      }).catch(() => {
-        self.setProperties({name: '', abbr: '', gmt_difference: ''});
-        console.log('error!');
+      }, () => { // didnt validate on client itself
+        
+        alert('Validation failed on client side. Please try again.');
+        self.model.rollbackAttributes();
+
+      }).catch(() => { // handle any exceptions
+
+        console.log('exception in timezones : edit : updateTimezone ');
+
       });
     }
     

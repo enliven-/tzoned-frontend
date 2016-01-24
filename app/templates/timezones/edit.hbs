@@ -3,15 +3,15 @@ Edit Timezone
 <form>
   <div class="form-group">
     <label>Abbr</label>
-    {{validated-input type="text" value=model.abbr placeholder="Abbreviation" errors=errors.model.abbr }}
+    {{validated-input type="text" name="abbr" value=model.abbr placeholder="Abbreviation" errors=errors.model.abbr }}
   </div>
   <div class="form-group">
     <label>Name</label>
-    {{validated-input type="text" value=model.name placeholder="Name" errors=errors.model.name }}
+    {{validated-input type="text" name="name" value=model.name placeholder="Name" errors=errors.model.name }}
   </div>
   <div class="form-group">
     <label>Gmt Difference</label>
-    {{validated-input type="text" value=model.gmt_difference placeholder="GMT Difference" errors=errors.model.gmt_difference }}
+    {{validated-input type="text" name="gmt_diff" value=model.gmt_difference placeholder="GMT Difference" errors=errors.model.gmt_difference }}
   </div>
   <button {{action "updateTimezone" model.id}} class="btn btn-primary">Submit</button>
 </form>

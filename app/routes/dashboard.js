@@ -12,6 +12,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     }
   },
 
+  afterModel() {
+    // unload all data, so that live data is fetched later on.
+    this.store.unloadAll('user');
+    this.store.unloadAll('timezone');
+  },
+
   renderTemplate() {
     var isRegular, isManager, isAdmin;
     var role = this.get('session.data.authenticated.user.role');

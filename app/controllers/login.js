@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
       })
       .catch((reason) => {
         // this.set('errorMessage', reason.error || reason);
-        alert('Error! Please check your email & password and try again.');
+        alert('Something bad happened!');
       });
     }
   }
