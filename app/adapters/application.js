@@ -14,7 +14,6 @@ export default ActiveModelAdapter.extend(DataAdapterMixin, {
     return { 'Authorization' : token };
   }).volatile(),
 
-
   authorizer: 'authorizer:devise',
 
   shouldReloadAll() { return true; },

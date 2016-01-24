@@ -17,11 +17,9 @@ Router.map(function() {
 
   this.route('login');
 
-  this.route('dashboard');
+  this.route('signup');
 
-  // this.route('users', function() {
-  //   this.route('edit');
-  // });
+  this.route('dashboard');
 });
 
 export default Router;
