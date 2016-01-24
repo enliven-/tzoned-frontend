@@ -1,4 +1,9 @@
 {{outlet}}
+<br/><br/>
+
+<div class="input-group"> <span class="input-group-addon">Filter</span>
+  <input id="filter" type="text" class="form-control" placeholder="Filter Timezones">
+</div>
 
 <h3>Timezones</h3>
 
@@ -13,7 +18,7 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="searchable">
   {{#each model as |timezone|}}
     <tr>
       <td>{{timezone.abbr}}</td>
@@ -27,4 +32,23 @@
   </tbody>
 </table>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    (function ($) {
+
+        $('#filter').keyup(function () {
+
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
+});
+</script>
 
