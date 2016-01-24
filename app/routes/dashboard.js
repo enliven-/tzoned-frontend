@@ -12,4 +12,30 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     }
   },
 
+  renderTemplate() {
+    var isRegular, isManager, isAdmin;
+    var role = this.get('session.data.authenticated.user.role');
+    if (role) {
+      role = role.toLowerCase();
+      isRegular = role == 'regular';
+      isManager = role == 'manager';
+      isAdmin   = role == 'admin';
+    }
+
+    this.render();
+
+    if(isRegular) {
+      this.render("timezones-nav", { outlet: "timezones-nav", into: "dashboard" });
+    };
+
+    if(isManager) {
+      this.render("users-nav", { outlet: "users-nav", into: "dashboard" });
+    };
+
+    if(isAdmin) {
+      this.render("timezones-nav", { outlet: "timezones-nav", into: "dashboard" });
+      this.render("users-nav", { outlet: "users-nav", into: "dashboard" });
+    }
+  }
+  
 });

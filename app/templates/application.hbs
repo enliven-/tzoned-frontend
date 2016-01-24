@@ -12,11 +12,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           {{#if session.isAuthenticated}}
           <ul class="nav navbar-nav">
-            <li>{{#link-to 'users'}}Users{{/link-to}}</li>
-            {{#unless isManager }}
-            <li>{{#link-to 'timezones'}}Timezones{{/link-to}}</li>
-            <li>{{#link-to 'timezones.new'}}New{{/link-to}}</li>
-            {{/unless}}
+{{!--             {{outlet "users-nav"}}
+            {{outlet "timezones-nav"}} --}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a {{action 'logout'}} href>Logout</a></li>
