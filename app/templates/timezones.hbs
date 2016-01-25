@@ -12,8 +12,8 @@
     <tr>
       <th>Abbr</th>
       <th>Name</th>
+      <th>City</th>
       <th>Current Time</th>
-      <th>Owner</th>
       <th></th>
       <th></th>
     </tr>
@@ -23,8 +23,8 @@
     <tr>
       <td>{{timezone.abbr}}</td>
       <td>{{timezone.name}} </td>
+      <td>{{timezone.city}} </td>
       <td>{{timezone.gmt_difference}}</td>
-      <td>{{timezone.user_email}}</td>
       <td>{{#link-to "timezones.edit" timezone.id class="btn btn-xs btn-info"}}Edit{{/link-to}}</td>
       <td><button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button></td>
     </tr>
@@ -32,23 +32,5 @@
   </tbody>
 </table>
 
-<script type="text/javascript">
-  $(document).ready(function () {
 
-    (function ($) {
-
-        $('#filter').keyup(function () {
-
-            var rex = new RegExp($(this).val(), 'i');
-            $('.searchable tr').hide();
-            $('.searchable tr').filter(function () {
-                return rex.test($(this).text());
-            }).show();
-
-        })
-
-    }(jQuery));
-
-});
-</script>
 

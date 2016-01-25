@@ -24,30 +24,25 @@ export default Ember.Controller.extend({
           // clear password locally
           user.set('password', undefined);
 
-          // clear fields
-          self.setProperties({email: ''});
-          self.setProperties({role: ''});
-          self.setProperties({password: ''});
-
-
-
-          // redirect to index
-          self.transitionToRoute('users');
-
         }, (err) => {
+
           // save on server failed.
-          alert('Validations failed on server. Please try again.');
-          self.model.rollbackAttributes();
+          alert('Validation failed on server. Please try again.');
 
         }).catch(() => {
 
+          console.log('Exception in users : edit : updateUser ');
 
         }).finally(() => {
-          // unload user records for safety.
-          console.log('here!')
+
+          self.setProperties({email: '', role: '', password: undefined});
+
           self.store.unloadAll('user');
           self.store.findAll('user');
-        })
+
+          self.transitionToRoute('users');
+          
+        });
 
       });
     }

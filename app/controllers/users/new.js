@@ -17,17 +17,21 @@ export default Ember.Controller.extend({
       });
 
       newUser.save().then(() => {
-        // success
-        // clear fields
-        this.setProperties({name: '', email: '', password: ''});
 
-        // redirect to index
         this.transitionToRoute('users');
+
       }, ()=> {
         // failed
-        alert('validations failed on server.')
-      });
+        alert('Validations failed on server. Please try again');
+        newUser.deleteRecord();
 
+      }).catch(() => {
+
+      }).finally(() => {
+
+        this.setProperties({email: '', role: '', password: ''});
+        
+      });
     }
     
   }

@@ -12,7 +12,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Email</th>
       <th>Role</th>
       <th></th>
@@ -22,7 +21,6 @@
   <tbody class="searchable">
   {{#each model as |user|}}
     <tr>
-      <td>{{user.name}}</td>
       <td>{{user.email}} </td>
       <td class="capitalize">{{user.role}}</td>
       <td>{{#link-to "users.edit" user.id class="btn btn-xs btn-info"}}Edit{{/link-to}}</td>
@@ -31,23 +29,3 @@
   {{/each}}
   </tbody>
 </table>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-
-    (function ($) {
-
-        $('#filter').keyup(function () {
-
-            var rex = new RegExp($(this).val(), 'i');
-            $('.searchable tr').hide();
-            $('.searchable tr').filter(function () {
-                return rex.test($(this).text());
-            }).show();
-
-        })
-
-    }(jQuery));
-
-});
-</script>
