@@ -1,3 +1,10 @@
+<div class="well col-sm-8 col-sm-offset-2">
+  {{#link-to 'signup' class="btn btn-md btn-info"}}Sign Up{{/link-to}}
+  Sign Up if you haven't already!         
+</div>
+
+
+  
 <form class="col-sm-8 col-sm-offset-2" {{action 'authenticate' on='submit'}}>
   <div class="form-group">
     <label for="identification">Login</label>
@@ -14,3 +21,5 @@
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
+
+

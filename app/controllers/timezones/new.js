@@ -11,7 +11,20 @@ export default Ember.Controller.extend({
       var name = this.get('name');
       var abbr = this.get('abbr');
       var city = this.get('city');
-      var gmt_difference = this.get('gmt_difference');
+      var gmt_difference;
+
+      var sign      = this.get('sign');
+      var hours     = this.get('hours');
+      var minutes  = this.get('minutes');
+
+      if(sign=='+') {
+        gmt_difference = hours*60*60 + minutes*60;
+      } else if (sign=='-') {
+        gmt_difference = -hours*60*60 + minutes*60;
+      } else {
+        alert('Validation failed on client. Please try again');
+        return false;
+      }
 
       // create new timezone in app
       var newTimezone = this.store.createRecord('timezone', {
@@ -38,7 +51,8 @@ export default Ember.Controller.extend({
 
       }).finally(() => {
         
-        self.setProperties({name: '', abbr: '', city: '', gmt_difference: ''});
+        self.setProperties({name: '', abbr: '', city: '', sign: '', hours: '', minutes: ''});
+        self.transitionToRoute('timezones');
 
       });
 

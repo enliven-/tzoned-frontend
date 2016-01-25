@@ -13,9 +13,45 @@ Edit Timezone
     <label>City</label>
     {{input type="text" name="city" class="form-control" value=model.city placeholder="City" }}
   </div>
+
   <div class="form-group">
-    <label>Gmt Difference</label>
-    {{input type="text" name="gmt_diff" class="form-control" value=model.gmt_difference placeholder="GMT Difference" }}
+    <label>Gmt Difference : Ahead / Behind</label>
+    {{#x-select value=model.sign class="form-control" }}
+      {{#x-option value='x'}}--{{/x-option}}
+      {{#x-option value='+'}}Ahead{{/x-option}}
+      {{#x-option value='-'}}Behind{{/x-option}}
+    {{/x-select}}
   </div>
+
+
+  <div class="form-group">
+    <label>Gmt Difference : Hours</label>
+    {{#x-select value=model.hours class="form-control" }}
+      {{#x-option value=0}}0{{/x-option}}
+      {{#x-option value=1}}1{{/x-option}}
+      {{#x-option value=2}}2{{/x-option}}
+      {{#x-option value=3}}3{{/x-option}}
+      {{#x-option value=4}}4{{/x-option}}
+      {{#x-option value=5}}5{{/x-option}}
+      {{#x-option value=6}}6{{/x-option}}
+      {{#x-option value=7}}7{{/x-option}}
+      {{#x-option value=8}}8{{/x-option}}
+      {{#x-option value=9}}9{{/x-option}}
+      {{#x-option value=10}}10{{/x-option}}
+      {{#x-option value=11}}11{{/x-option}}
+      {{#x-option value=12}}12{{/x-option}}
+    {{/x-select}}
+  </div>
+
+  <div class="form-group">
+    <label>Gmt Difference : Minutes</label>
+    {{#x-select value=model.minutes class="form-control" }}
+      {{#x-option value=0}}00{{/x-option}}
+      {{#x-option value=15}}15{{/x-option}}
+      {{#x-option value=30}}30{{/x-option}}
+      {{#x-option value=45}}45{{/x-option}}
+    {{/x-select}}
+  </div>
+
   <button {{action "updateTimezone" model.id}} class="btn btn-primary">Submit</button>
 </form>
