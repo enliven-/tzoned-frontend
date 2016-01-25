@@ -24,13 +24,10 @@
       <td>{{timezone.abbr}}</td>
       <td>{{timezone.name}} </td>
       <td>{{timezone.city}} </td>
-      <td>{{timezone.gmt_difference}}</td>
+      <td>{{timezone.current_time}}</td>
       <td>{{#link-to "timezones.edit" timezone.id class="btn btn-xs btn-info"}}Edit{{/link-to}}</td>
       <td><button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button></td>
     </tr>
   {{/each}}
   </tbody>
 </table>
-
-
-
