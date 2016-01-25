@@ -23,6 +23,7 @@ export default Ember.Controller.extend({
         gmt_difference = -hours*60*60 + minutes*60;
       } else {
         alert('Validation failed on client. Please try again');
+        self.transitionToRoute('timezones');
         return false;
       }
 
@@ -37,15 +38,11 @@ export default Ember.Controller.extend({
       // save on server
       newTimezone.save().then(() =>{
 
-        // succcess
-        self.transitionToRoute('timezones');
-      
       }, ()=> {
         
         // failure
         alert('Validation failed on server. Please try again.');
         newTimezone.deleteRecord();
-
 
       }).catch(() => {
 
