@@ -16,6 +16,7 @@
       <th>Current Time</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody class="searchable">
@@ -24,7 +25,8 @@
       <td>{{timezone.abbr}}</td>
       <td>{{timezone.name}} </td>
       <td>{{timezone.city}} </td>
-      <td>{{timezone.current_time}}</td>
+      <td>GMT {{timezone.sign}}{{timezone.hours}}:{{timezone.minutes}}</td>
+      <td>{{#link-to "timezones.show" timezone.id class="btn btn-xs btn-primary"}}Show{{/link-to}}</td>
       <td>{{#link-to "timezones.edit" timezone.id class="btn btn-xs btn-info"}}Edit{{/link-to}}</td>
       <td><button {{ action "deleteTimezone" timezone.id }} class="btn btn-xs btn-danger">Delete</button></td>
     </tr>
